@@ -17,6 +17,8 @@
 		BF7A586F2387E0CE00F9D237 /* my_keras_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = BF7A586E2387E0CE00F9D237 /* my_keras_model.tflite */; };
 		BF7A58712387E76300F9D237 /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = BF7A58702387E76300F9D237 /* labels.txt */; };
 		BF7A58752387F8DA00F9D237 /* ModalDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7A58742387F8DA00F9D237 /* ModalDataHandler.m */; };
+		BF7A5879238B81C000F9D237 /* PixelBufferHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7A5878238B81C000F9D237 /* PixelBufferHelper.m */; };
+		BF7A587B238BB2E900F9D237 /* plot.png in Resources */ = {isa = PBXBuildFile; fileRef = BF7A587A238BB2E900F9D237 /* plot.png */; };
 		D4347FDFD04435D7F83D11AA /* libPods-tflite_demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C340EF9EC70AF015A63C7D54 /* libPods-tflite_demo.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,9 @@
 		BF7A58702387E76300F9D237 /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
 		BF7A58732387F8DA00F9D237 /* ModalDataHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModalDataHandler.h; sourceTree = "<group>"; };
 		BF7A58742387F8DA00F9D237 /* ModalDataHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModalDataHandler.m; sourceTree = "<group>"; };
+		BF7A5877238B81C000F9D237 /* PixelBufferHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixelBufferHelper.h; sourceTree = "<group>"; };
+		BF7A5878238B81C000F9D237 /* PixelBufferHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixelBufferHelper.m; sourceTree = "<group>"; };
+		BF7A587A238BB2E900F9D237 /* plot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plot.png; sourceTree = "<group>"; };
 		C340EF9EC70AF015A63C7D54 /* libPods-tflite_demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tflite_demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,6 +97,7 @@
 		BF7A58532387E02400F9D237 /* tflite_demo */ = {
 			isa = PBXGroup;
 			children = (
+				BF7A5876238B816D00F9D237 /* PixelBuffer */,
 				BF7A58722387E94600F9D237 /* ModelDataHandler */,
 				BF7A586D2387E08700F9D237 /* Model */,
 				BF7A58542387E02400F9D237 /* AppDelegate.h */,
@@ -112,6 +118,7 @@
 		BF7A586D2387E08700F9D237 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF7A587A238BB2E900F9D237 /* plot.png */,
 				BF7A58702387E76300F9D237 /* labels.txt */,
 				BF7A586E2387E0CE00F9D237 /* my_keras_model.tflite */,
 			);
@@ -125,6 +132,15 @@
 				BF7A58742387F8DA00F9D237 /* ModalDataHandler.m */,
 			);
 			path = ModelDataHandler;
+			sourceTree = "<group>";
+		};
+		BF7A5876238B816D00F9D237 /* PixelBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				BF7A5877238B81C000F9D237 /* PixelBufferHelper.h */,
+				BF7A5878238B81C000F9D237 /* PixelBufferHelper.m */,
+			);
+			path = PixelBuffer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +203,7 @@
 			files = (
 				BF7A58642387E02A00F9D237 /* LaunchScreen.storyboard in Resources */,
 				BF7A58612387E02A00F9D237 /* Assets.xcassets in Resources */,
+				BF7A587B238BB2E900F9D237 /* plot.png in Resources */,
 				BF7A58712387E76300F9D237 /* labels.txt in Resources */,
 				BF7A586F2387E0CE00F9D237 /* my_keras_model.tflite in Resources */,
 				BF7A585F2387E02400F9D237 /* Main.storyboard in Resources */,
@@ -225,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7A5879238B81C000F9D237 /* PixelBufferHelper.m in Sources */,
 				BF7A58752387F8DA00F9D237 /* ModalDataHandler.m in Sources */,
 				BF7A585C2387E02400F9D237 /* ViewController.m in Sources */,
 				BF7A58562387E02400F9D237 /* AppDelegate.m in Sources */,
@@ -370,7 +388,9 @@
 			baseConfigurationReference = 019BE43A52DAADECE5F3D5EA /* Pods-tflite_demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4FL62462P2;
 				INFOPLIST_FILE = tflite_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,7 +398,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vdian.tflite-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = All_Dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
 		};
@@ -387,7 +409,9 @@
 			baseConfigurationReference = B7DBD8DBFC07CD241CBCEF00 /* Pods-tflite_demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4FL62462P2;
 				INFOPLIST_FILE = tflite_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -395,7 +419,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vdian.tflite-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = All_Dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;
 		};
