@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage *)imageFromPixelBuffer:(CVPixelBufferRef)pixelBufferRef;
 
++ (CVPixelBufferRef)centerThumbnail:(CVImageBufferRef)imageBuffer;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -126,7 +126,7 @@
 
     CVPixelBufferUnlockBaseAddress(pxbuffer, 0);
 
-    return [self centerThumbnail:pxbuffer];
+    return pxbuffer;
 }
 
 + (CVPixelBufferRef)centerThumbnail:(CVImageBufferRef)imageBuffer {

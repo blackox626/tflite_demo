@@ -20,6 +20,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>开启相机权限， 使用摄像头捕获视频</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>开启相册权限，可以发送图文动态。</string>
 	<key>UIApplicationSceneManifest</key>

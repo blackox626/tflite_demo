@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)runModel:(UIImage *)image;
 
+- (void)runModelWithPixel:(CVPixelBufferRef )pixbuffer;
+
 @end
 
 NS_ASSUME_NONNULL_END
