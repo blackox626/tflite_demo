@@ -7,27 +7,27 @@
 //
 
 #import "ViewController.h"
-#import "ModalDataHandler.h"
+#import "ModelDataHandler.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController {
-    ModalDataHandler *_dataHander;
+    ModelDataHandler *_dataHander;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initModalDataHandler];
+}
 
+- (void)initModalDataHandler {
     NSString *model_path = [[NSBundle mainBundle] pathForResource:@"my_keras_model" ofType:@"tflite"];
-    
     NSString *label_path = [[NSBundle mainBundle] pathForResource:@"labels" ofType:@"txt"];
     
-    _dataHander = [[ModalDataHandler alloc] initWithModelPath:model_path labelPath:label_path];
-
-    [_dataHander runModel:[UIImage imageNamed:@"plot"]];
+    _dataHander = [[ModelDataHandler alloc] initWithModelPath:model_path labelPath:label_path];
+    //[_dataHander runModel:[UIImage imageNamed:@"plot"]];
 }
 
 @end

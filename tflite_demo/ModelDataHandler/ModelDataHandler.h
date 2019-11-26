@@ -1,5 +1,5 @@
 //
-//  ModalDataHandler.h
+//  ModelDataHandler.h
 //  tflite_demo
 //
 //  Created by blackox626 on 2019/11/22.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ModalDataHandler : NSObject
+@interface ModelDataHandler : NSObject
 
 - (id)initWithModelPath:(NSString *)modelPath labelPath:(NSString *)labelPath;
 

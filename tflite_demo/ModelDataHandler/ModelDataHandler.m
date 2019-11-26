@@ -1,12 +1,12 @@
 //
-//  ModalDataHandler.m
+//  ModelDataHandler.m
 //  tflite_demo
 //
 //  Created by blackox626 on 2019/11/22.
 //  Copyright © 2019 vdian. All rights reserved.
 //
 
-#import "ModalDataHandler.h"
+#import "ModelDataHandler.h"
 #import "TFLTensorFlowLite.h"
 #import "TFLInterpreter+Internal.h"
 #import "PixelBufferHelper.h"
@@ -31,7 +31,7 @@ void quicksort(float arr[], int low, int high) {
     quicksort(arr, i+1, high);
 }
 
-@implementation ModalDataHandler {
+@implementation ModelDataHandler {
     NSString *_modelPath;
     NSString *_labelPath;
 
@@ -74,7 +74,7 @@ void quicksort(float arr[], int low, int high) {
 
 //    UIImageWriteToSavedPhotosAlbum([PixelBufferHelper imageFromPixelBuffer:buffer], self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     
-    NSData *data = [ModalDataHandler dataWithPixelBuffer:buffer];
+    NSData *data = [ModelDataHandler dataWithPixelBuffer:buffer];
 
     [_interpreter allocateTensorsWithError:&error];
     
