@@ -74,15 +74,8 @@ void quicksort(float arr[], int low, int high) {
 
 //    UIImageWriteToSavedPhotosAlbum([PixelBufferHelper imageFromPixelBuffer:buffer], self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     
-    //UIImage *__image = [PixelBufferHelper imageFromPixelBuffer:buffer];
-    //NSData *data = UIImagePNGRepresentation(__image);
-    
     NSData *data = [ModalDataHandler dataWithPixelBuffer:buffer];
 
-    
-//    UIImage *_image = [UIImage imageWithData:data];
-//    UIImageWriteToSavedPhotosAlbum(_image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-    
     [_interpreter allocateTensorsWithError:&error];
     
     TFLTensor *inputTensor = [_interpreter inputTensorAtIndex:0 error:&error];
@@ -112,7 +105,7 @@ void quicksort(float arr[], int low, int high) {
     
     NSLog(@"%@ , %f",_labels[index],pf[index]);
     
-    printf(@"%lu",(unsigned long)outputTensor.dataType);
+    NSLog(@"%lu",(unsigned long)outputTensor.dataType);
 }
 
 + (NSData *)dataWithPixelBuffer:(CVPixelBufferRef)pixelBuffer {
@@ -144,25 +137,18 @@ void quicksort(float arr[], int low, int high) {
 
     int index = 0;
     
-    //OSType pixelBufferType = CVPixelBufferGetPixelFormatType(pixelBuffer);
+    OSType pixelBufferType = CVPixelBufferGetPixelFormatType(pixelBuffer);
     
     //memcpy(dst, src, h*d);
     for(int i=0; i<h*d; i+=4){
-            //int a = src[i+3];
-            int r = src[i+2];
-            int g = src[i+1];
-            int b = src[i];
-    
-//        NSLog(@"second values = r:%f g:%f b:%f", r/255.0, g/255.0, b/255.0);
+        int a = src[i+3];
+        int r = src[i+2];
+        int g = src[i+1];
+        int b = src[i];
         
         dst[index] = r/255.0f;
-        
-        //NSLog(@" values = r:%f ", dst[index]);
-        
-        index+=1;
+        index++;
     }
-    
-    //dst[index] = '\0';
 
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
 }

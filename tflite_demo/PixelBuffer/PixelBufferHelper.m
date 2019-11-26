@@ -12,7 +12,7 @@
 @implementation PixelBufferHelper
 
 + (UIImage *)Resize:(UIImage *)sourceImage toSize:(CGSize)targetSize {
-//  UIImage *sourceImage = self;
+
     UIImage *newImage = nil;
     CGSize imageSize = sourceImage.size;
     CGFloat width = imageSize.width;
@@ -173,24 +173,7 @@
         CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
 
         CVPixelBufferRef pxbuffer;
-//        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-//                [NSNumber numberWithBool:YES], [NSValue valueWithPointer:kCVPixelBufferCGImageCompatibilityKey],
-//                [NSNumber numberWithBool:YES], [NSValue valueWithPointer:kCVPixelBufferCGBitmapContextCompatibilityKey],
-//                [NSNumber numberWithInt:720], [NSValue valueWithPointer:kCVPixelBufferWidthKey],
-//                [NSNumber numberWithInt:1280], [NSValue valueWithPointer:kCVPixelBufferHeightKey],
-//                        nil];
 
-//        NSDictionary *options = @{
-//                (NSString *) kCVPixelBufferCGImageCompatibilityKey: @YES,
-//                (NSString *) kCVPixelBufferCGBitmapContextCompatibilityKey: @YES,
-//                (NSString *) kCVPixelBufferWidthKey: @28,
-//                (NSString *) kCVPixelBufferHeightKey: @28
-//        };
-//
-//        NSInteger tempWidth = (NSInteger) (宽度 / 比率);
-//        NSInteger tempHeight = (NSInteger) (身高 / 比率);
-
-//        NSInteger baseAddressStart = 100 + 100 * bytesPerRow;
         CVReturn status = CVPixelBufferCreateWithBytes(
                 kCFAllocatorDefault,
                 28,
@@ -211,9 +194,6 @@
         return pxbuffer;
     }
 }
-
-
-//other
 
 + (UIImage *)convert:(CVPixelBufferRef)pixelBuffer {
     CIImage *ciImage = [CIImage imageWithCVPixelBuffer:pixelBuffer];
