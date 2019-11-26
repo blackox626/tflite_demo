@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F412065EF35E6263F8D987B /* my_keras_cat_dog.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 9F4122A7CE3683BAAE6CA243 /* my_keras_cat_dog.tflite */; };
+		9F41210142E2E08D926E74B5 /* cat_dog_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F41282EBC09B088CF144542 /* cat_dog_labels.txt */; };
+		9F412D6E07B563FE085AEC1A /* dog_2014.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F412CA9190C458F8C4F4BD0 /* dog_2014.jpg */; };
 		BF7A58562387E02400F9D237 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7A58552387E02400F9D237 /* AppDelegate.m */; };
 		BF7A58592387E02400F9D237 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7A58582387E02400F9D237 /* SceneDelegate.m */; };
 		BF7A585C2387E02400F9D237 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7A585B2387E02400F9D237 /* ViewController.m */; };
@@ -24,6 +27,9 @@
 
 /* Begin PBXFileReference section */
 		019BE43A52DAADECE5F3D5EA /* Pods-tflite_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tflite_demo.debug.xcconfig"; path = "Target Support Files/Pods-tflite_demo/Pods-tflite_demo.debug.xcconfig"; sourceTree = "<group>"; };
+		9F4122A7CE3683BAAE6CA243 /* my_keras_cat_dog.tflite */ = {isa = PBXFileReference; lastKnownFileType = file.tflite; path = my_keras_cat_dog.tflite; sourceTree = "<group>"; };
+		9F41282EBC09B088CF144542 /* cat_dog_labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cat_dog_labels.txt; sourceTree = "<group>"; };
+		9F412CA9190C458F8C4F4BD0 /* dog_2014.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog_2014.jpg; sourceTree = "<group>"; };
 		B7DBD8DBFC07CD241CBCEF00 /* Pods-tflite_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tflite_demo.release.xcconfig"; path = "Target Support Files/Pods-tflite_demo/Pods-tflite_demo.release.xcconfig"; sourceTree = "<group>"; };
 		BF7A58512387E02400F9D237 /* tflite_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tflite_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7A58542387E02400F9D237 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,6 +127,9 @@
 				BF7A587A238BB2E900F9D237 /* plot.png */,
 				BF7A58702387E76300F9D237 /* labels.txt */,
 				BF7A586E2387E0CE00F9D237 /* my_keras_model.tflite */,
+				9F4122A7CE3683BAAE6CA243 /* my_keras_cat_dog.tflite */,
+				9F41282EBC09B088CF144542 /* cat_dog_labels.txt */,
+				9F412CA9190C458F8C4F4BD0 /* dog_2014.jpg */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +216,9 @@
 				BF7A58712387E76300F9D237 /* labels.txt in Resources */,
 				BF7A586F2387E0CE00F9D237 /* my_keras_model.tflite in Resources */,
 				BF7A585F2387E02400F9D237 /* Main.storyboard in Resources */,
+				9F412065EF35E6263F8D987B /* my_keras_cat_dog.tflite in Resources */,
+				9F41210142E2E08D926E74B5 /* cat_dog_labels.txt in Resources */,
+				9F412D6E07B563FE085AEC1A /* dog_2014.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

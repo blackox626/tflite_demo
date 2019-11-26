@@ -36,14 +36,14 @@ void quicksort(float arr[], int low, int high) {
 
     TFLInterpreter *_interpreter;
     NSArray<NSString *> *_labels;
-    
+
     BOOL _saved;
 }
 
 - (id)initWithModelPath:(NSString *)modelPath labelPath:(NSString *)labelPath {
     self = [super init];
     if (self) {
-        _saved = NO;
+        _saved = YES;
         _modelPath = modelPath;
         _labelPath = labelPath;
 
@@ -75,15 +75,14 @@ void quicksort(float arr[], int low, int high) {
 }
 
 - (void)runModelWithPixel:(CVPixelBufferRef)pixbuffer {
-    
-    pixbuffer = [PixelBufferHelper centerThumbnail:pixbuffer];
-    
-    if(!_saved) {
+
+    pixbuffer = [PixelBufferHelper centerThumbnail:pixbuffer size:CGSizeMake(150, 150)];
+
+    if (!_saved) {
         _saved = YES;
         UIImageWriteToSavedPhotosAlbum([PixelBufferHelper imageFromPixelBuffer:pixbuffer], self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-        
     }
-    
+
     NSData *data = [ModelDataHandler dataWithPixelBuffer:pixbuffer];
     NSError *error = nil;
     [_interpreter allocateTensorsWithError:&error];
@@ -105,15 +104,21 @@ void quicksort(float arr[], int low, int high) {
 
     int index = 0;
 
-    for (int i = 1; i < 10; i++) {
-        if (pf[i] > pf[index]) {
-            index = i;
-        }
+//    for (int i = 1; i < 10; i++) {
+//        if (pf[i] > pf[index]) {
+//            index = i;
+//        }
+//
+//        printf("proba %f \n", pf[i]);
+//    }
+//
+//    NSLog(@"%@ , %f", _labels[index], pf[index]);
 
-        printf("proba %f \n", pf[i]);
+    if (pf[0] > 0.5) {
+        index = 1;
     }
 
-    NSLog(@"%@ , %f", _labels[index], pf[index]);
+    NSLog(@"%@ , %f", _labels[(NSUInteger) index], pf[0]);
 
     NSLog(@"%lu", (unsigned long) outputTensor.dataType);
 }
@@ -124,11 +129,11 @@ void quicksort(float arr[], int low, int high) {
 
     size_t width = CVPixelBufferGetWidth(pixelBuffer);
     size_t height = CVPixelBufferGetHeight(pixelBuffer);
-    float *buffer = malloc(width * height * sizeof(float));
+    float *buffer = malloc(width * height * sizeof(float) * 3);
 
     [self copyDataFromPixelBuffer:pixelBuffer toBuffer:buffer];
 
-    NSData *retData = [NSData dataWithBytes:buffer length:sizeof(float) * (width * height)];
+    NSData *retData = [NSData dataWithBytes:buffer length:sizeof(float) * (width * height) * 3];
     free(buffer);
     buffer = nil;
     return retData;
@@ -151,13 +156,15 @@ void quicksort(float arr[], int low, int high) {
 
     //memcpy(dst, src, h*d);
     for (int i = 0; i < h * d; i += 4) {
-        int a = src[i + 3];
+        /*int a = src[i + 3];
         int r = src[i + 2];
         int g = src[i + 1];
-        int b = src[i];
+        int b = src[i];*/
 
-        dst[index] = r / 255.0f;
-        index++;
+        for (int j = 2; j >= 0; j--) {
+            dst[index] = src[i + j] / 255.0f;
+            index++;
+        }
     }
 
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);

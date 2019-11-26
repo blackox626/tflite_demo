@@ -129,7 +129,7 @@
     return pxbuffer;
 }
 
-+ (CVPixelBufferRef)centerThumbnail:(CVImageBufferRef)imageBuffer {
++ (CVPixelBufferRef)centerThumbnail:(CVImageBufferRef)imageBuffer size:(CGSize)size {
     @synchronized (self) {
         //锁定图像缓冲区
         CVPixelBufferLockBaseAddress(imageBuffer, 0);
@@ -153,16 +153,15 @@
             originY = (height - width) / 2;
         }
 
-
         vImage_Buffer vimg_buffer = {.data = &baseAddress[originY * bytesPerRow + originX * 4], .height = thumbnailSize,
                 .width = thumbnailSize, .rowBytes = bytesPerRow};
 
-        size_t thumbnailRowBytes = 28 * 4;
-        uint8_t *thumbnailBaseAddress = (uint8_t *) malloc(28 * thumbnailRowBytes);
+        size_t thumbnailRowBytes = (size_t) (size.width * 4);
+        uint8_t *thumbnailBaseAddress = (uint8_t *) malloc((size_t) (size.height * thumbnailRowBytes));
 
 
-        vImage_Buffer thumbnail_vimg_buffer = {.data =  thumbnailBaseAddress, .height =  28, .width =
-        28, .rowBytes =  thumbnailRowBytes};
+        vImage_Buffer thumbnail_vimg_buffer = {.data =  thumbnailBaseAddress, .height =  (vImagePixelCount) size.height, .width =
+        (vImagePixelCount) size.width, .rowBytes =  thumbnailRowBytes};
 
         vImage_Error error = vImageScale_ARGB8888(&vimg_buffer, &thumbnail_vimg_buffer, nil, kvImageNoFlags);
 
@@ -176,8 +175,8 @@
 
         CVReturn status = CVPixelBufferCreateWithBytes(
                 kCFAllocatorDefault,
-                28,
-                28,
+                (size_t) size.width,
+                (size_t) size.height,
                 pixelBufferType,
                 thumbnailBaseAddress,
                 thumbnailRowBytes,

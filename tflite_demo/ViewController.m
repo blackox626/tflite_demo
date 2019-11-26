@@ -31,7 +31,6 @@
     [self initModalDataHandler];
 
     [self initAVCaptureSession];
-
     [self.captureSession startRunning];
 }
 
@@ -80,11 +79,11 @@
 }
 
 - (void)initModalDataHandler {
-    NSString *model_path = [[NSBundle mainBundle] pathForResource:@"my_keras_model" ofType:@"tflite"];
-    NSString *label_path = [[NSBundle mainBundle] pathForResource:@"labels" ofType:@"txt"];
+    NSString *model_path = [[NSBundle mainBundle] pathForResource:@"my_keras_cat_dog" ofType:@"tflite"];
+    NSString *label_path = [[NSBundle mainBundle] pathForResource:@"cat_dog_labels" ofType:@"txt"];
 
     _dataHander = [[ModelDataHandler alloc] initWithModelPath:model_path labelPath:label_path];
-    //[_dataHander runModel:[UIImage imageNamed:@"plot"]];
+    //[_dataHander runModel:[UIImage imageNamed:@"dog_2014.jpg"]];
 }
 
 - (void)captureOutput:(AVCaptureOutput *)output

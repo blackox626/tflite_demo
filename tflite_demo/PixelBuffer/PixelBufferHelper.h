@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage *)imageFromPixelBuffer:(CVPixelBufferRef)pixelBufferRef;
 
-+ (CVPixelBufferRef)centerThumbnail:(CVImageBufferRef)imageBuffer;
++ (CVPixelBufferRef)centerThumbnail:(CVImageBufferRef)imageBuffer size:(CGSize)size;
 
 @end
 
